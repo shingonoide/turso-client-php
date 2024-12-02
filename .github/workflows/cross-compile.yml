@@ -1,9 +1,9 @@
 name: Build and Publish PHP Extension
 
 on:
-  push:
-    branches:
-      - windows_build
+  # push:
+  #   branches:
+  #     - windows_build
   release:
     types: [created]
 
@@ -116,7 +116,7 @@ jobs:
 
       - name: Get the release version from the tag
         shell: bash
-        run: echo "VERSION=1.4.1" >> $GITHUB_ENV
+        run: echo "VERSION=${GITHUB_REF#refs/tags/}" >> $GITHUB_ENV
 
       # - name: Install Rust (MacOS and Linux)
       #   if: matrix.os != 'windows-latest'

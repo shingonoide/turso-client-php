@@ -1,14 +1,10 @@
 name: Update Release Metadata
 
 on:
-  push:
-    branches:
-      - windows_buildddd
-
-  # workflow_run:
-  #   workflows: ["Build and Publish PHP Extension"]
-  #   types:
-  #     - completed
+  workflow_run:
+    workflows: ["Build and Publish PHP Extension"]
+    types:
+      - completed
 
 permissions:
   contents: write
